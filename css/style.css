@@ -161,6 +161,34 @@ li {
   display: inline-block;
 }
 
+.shelf-search {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 4px;
+}
+
+.shelf-search input {
+  flex: 1;
+  max-width: 360px;
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.shelf-search-feedback {
+  min-height: 1.2em;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.shelf-group.shelf-highlight .shelf {
+  stroke: #a15c00;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 6px rgba(161, 92, 0, 0.6));
+}
+
 .floor-tabs {
   display: flex;
   gap: 8px;
@@ -231,6 +259,15 @@ li {
   font-size: 1.4rem;
   cursor: pointer;
   color: #666;
+}
+.shelf-category {
+  list-style: none;
+  margin: 14px 0 4px;
+  font-weight: 600;
+  color: #a15c00;
+}
+.shelf-category:first-child {
+  margin-top: 0;
 }
 
 /* ---------- Footer ---------- */

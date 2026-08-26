@@ -20,19 +20,40 @@ function groupByTopic(experiments) {
   return groups;
 }
 
+function groupBySubtopic(experiments) {
+  const groups = {};
+  experiments.forEach(exp => {
+    const key = exp.subtopic || "";
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(exp);
+  });
+  return groups;
+}
+
 function renderExperimentList() {
   const groups = groupByTopic(EXPERIMENTS);
   const container = document.getElementById("experiment-list");
 
   const html = Object.entries(groups).map(([topic, experiments]) => {
-    const items = experiments
-      .map(exp => `<li><a href="experiencia.html?id=${exp.id}">${exp.name}</a></li>`)
-      .join("");
+    const subgroups = groupBySubtopic(experiments);
+
+    const subsectionsHtml = Object.entries(subgroups).map(([subtopic, exps]) => {
+      const items = exps
+        .map(exp => exp.id
+          ? `<li><a href="experiencia.html?id=${exp.id}">${exp.name}</a></li>`
+          : `<li>${exp.name}</li>`
+        )
+        .join("");
+
+      return subtopic
+        ? `<div class="subtopic"><h3>${subtopic}</h3><ul>${items}</ul></div>`
+        : `<div class="subtopic"><ul>${items}</ul></div>`;
+    }).join("");
 
     return `
       <section id="${slugify(topic)}">
         <h2>${topic}</h2>
-        <ul>${items}</ul>
+        ${subsectionsHtml}
       </section>`;
   }).join("");
 

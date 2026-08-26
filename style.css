@@ -1,0 +1,281 @@
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Arial, sans-serif;
+  color: #222;
+  background: #fafafa;
+  line-height: 1.5;
+}
+
+a {
+  color: #0b5fa5;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 20px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #0b5fa5;
+  padding-bottom: 8px;
+}
+
+h2 {
+  font-size: 1.3rem;
+  margin: 24px 0 8px;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+/* ---------- Header / Nav (built by js/nav.js) ---------- */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.site-header .top-bar {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-header .top-bar img {
+  height: 32px;
+}
+
+.site-header .top-bar span {
+  font-weight: 600;
+  color: #444;
+}
+
+.site-nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.site-nav a {
+  color: #333;
+  font-weight: 500;
+}
+
+.site-nav .dropdown {
+  position: relative;
+}
+
+.site-nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  min-width: 220px;
+  padding: 8px 0;
+  z-index: 10;
+}
+
+.site-nav .dropdown-menu a {
+  display: block;
+  padding: 8px 16px;
+}
+
+.site-nav .dropdown:hover .dropdown-menu,
+.site-nav .dropdown:focus-within .dropdown-menu {
+  display: block;
+}
+
+/* ---------- Home page ---------- */
+.home-layout {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.home-photo {
+  width: 280px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.home-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+/* ---------- Tables (courses page) ---------- */
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 28px;
+}
+.course-table th,
+.course-table td {
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.92rem;
+}
+.course-table th {
+  background: #f0f4f8;
+}
+
+ul {
+  margin: 0 0 16px 20px;
+}
+li {
+  margin-bottom: 6px;
+}
+
+/* ---------- Organização (blueprint) ---------- */
+.dummy-notice {
+  color: #a15c00;
+  background: #fff6e5;
+  border: 1px solid #f0d9a8;
+  padding: 8px 12px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.shelf-search {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 4px;
+}
+
+.shelf-search input {
+  flex: 1;
+  max-width: 360px;
+  padding: 8px 12px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
+.shelf-search-feedback {
+  min-height: 1.2em;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.shelf-group.shelf-highlight .shelf {
+  stroke: #a15c00;
+  stroke-width: 4;
+  filter: drop-shadow(0 0 6px rgba(161, 92, 0, 0.6));
+}
+
+.floor-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 20px 0 12px;
+}
+
+.floor-tabs button {
+  padding: 8px 16px;
+  border: 1px solid #bbb;
+  background: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.floor-tabs button.active {
+  background: #0b5fa5;
+  color: #fff;
+  border-color: #0b5fa5;
+}
+
+#floor-plan-container {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  padding: 8px;
+  overflow-x: auto;
+}
+
+.shelf {
+  cursor: pointer;
+  fill: #0b5fa5;
+  stroke: #08406e;
+  stroke-width: 2;
+  transition: fill 0.15s;
+}
+.shelf:hover {
+  fill: #1a7fd6;
+}
+.shelf.door {
+  cursor: default;
+  fill: #999;
+  stroke: #666;
+}
+.shelf-label {
+  fill: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.shelf-panel {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  background: #fff;
+  position: relative;
+}
+.shelf-panel-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  border: none;
+  background: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #666;
+}
+.shelf-category {
+  list-style: none;
+  margin: 14px 0 4px;
+  font-weight: 600;
+  color: #a15c00;
+}
+.shelf-category:first-child {
+  margin-top: 0;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  color: #777;
+  font-size: 0.85rem;
+}

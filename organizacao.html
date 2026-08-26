@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organização · LabDEMO</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main class="container">
+    <h1>Organização do laboratório</h1>
+    <p>Planta do laboratório: clique numa prateleira para ver as experiências guardadas nela.</p>
+    <div class="shelf-search">
+      <input type="text" id="shelf-search-input" placeholder="Procurar experiência pelo nome... (Enter para procurar)">
+    </div>
+    <p id="shelf-search-feedback" class="shelf-search-feedback"></p>
+
+    <div id="floor-tabs" class="floor-tabs"></div>
+    <div id="floor-plan-container"></div>
+
+    <div id="shelf-panel" class="shelf-panel" hidden>
+      <button id="shelf-panel-close" class="shelf-panel-close" aria-label="Fechar">&times;</button>
+      <h2 id="shelf-panel-title">—</h2>
+      <ul id="shelf-panel-list"></ul>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/organizacao.js"></script>
+</body>
+</html>

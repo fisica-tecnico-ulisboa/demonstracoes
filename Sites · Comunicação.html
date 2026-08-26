@@ -1,0 +1,1340 @@
+<!--
+
+    Copyright © 2013 Instituto Superior Técnico
+
+    This file is part of FenixEdu IST Integration.
+
+    FenixEdu IST Integration is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Lesser General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    FenixEdu IST Integration is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Lesser General Public License for more details.
+
+    You should have received a copy of the GNU Lesser General Public License
+    along with FenixEdu IST Integration.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html lang="en" class="ie ie9"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html dir="ltr" lang="pt_PT"> <!--<![endif]-->
+  <head>
+
+	<!-- Basic Page Needs -->
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Language" content="pt" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="Description" content="FenixEdu™ is an open-source academic information platform." />
+	<meta name="Keywords" content="FenixEdu, open-source, academic, information, platform, academic administration, higher education, e-learning" />
+	<meta name="Language" content="pt_PT" />
+	<meta name="Robots" content="all" />
+	<meta name="Author" content="FenixEdu" />
+	<meta name="Email" content="hello@fenixedu.org" />
+	<meta name="Copyright" content="Técnico Lisboa — Instituto Superior Técnico" />
+	<meta name="Distribution" content="Global" />
+	<meta name="Rating" content="General" />
+
+	<!-- OpenGraph Specific Metas -->
+	<meta property="og:title" content="FenixEdu™" />
+	<meta property="og:type" content="application" />
+	<meta property="og:url" content="http://www.fenixedu.org" />
+	<meta property="og:site_name" content="FenixEdu" />
+	<meta property="og:description" content="FenixEdu™ is an open-source academic information platform." />
+	<meta property="fb:profile_id" content="379238245509413" />
+
+	<!-- Mobile Specific Metas -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
+
+    <title>Sites · Comunicação</title>
+
+    <!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" media="screen" href="/themes/ashes/css/general.css">
+    <link href="/themes/ashes/css/style.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/bennu-portal/js/jquery.min.js"></script>
+	<script src="/themes/ashes/js/bootstrap.min.js"></script>
+	<script> setLang = function(l) {
+		$.post('/api/bennu-core/profile/locale/' + l.replace('_', '-')).always(function() { location.reload(); });
+	}
+	</script>
+	
+	<!-- Favicons & TouchIcons-->
+	<link rel="shortcut icon" type="image/x-icon" href="/api/bennu-portal/configuration/favicon">
+
+  </head>
+
+  <body>
+  	<!-- Bar -->
+<div class="navbar navbar-inverse hidden-xs fenixedu-bar">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/" target="_blank">Técnico ULisboa</a></li>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li></li>
+								<li><a><img src="https://fenix.tecnico.ulisboa.pt/user/photo/ist196536?s=20" width="20" heigth="20" style="margin-right: 10px" class="img-circle"/>Inês Moreira</a></li>
+								<li class="active"><a href="/logout">Logout</a></li>
+							</ul>
+		</div>
+	</div>
+</div>
+<div id="alerts" style="display: none;">
+</div>
+
+	<header class="clearfix" role="banner">
+		<div class="col-sm-2 logo-container text-center">
+			<button type="button" class="navbar-toggle hamburger" data-toggle="collapse" data-target="#topNav">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+							<a href="http://tecnico.ulisboa.pt" target="_blank">
+					<img src="/api/bennu-portal/configuration/logo" title="Técnico ULisboa" />
+				</a>
+					</div>
+		<nav class="col-sm-10 collapse" id="topNav" role="navigation">
+			<ul class="nav navbar-bottom nav-pills nav-menu">
+							<li class="active"><a href="/messaging">Comunicação</a></li>
+							<li class=""><a href="/student">Estudante</a></li>
+							<li class=""><a href="/personal">Pessoal</a></li>
+							<li class=""><a href="/teaching">Docência</a></li>
+							<li class=""><a href="/department-member">Departamento</a></li>
+							<li class=""><a href="/alumni-section">Alumni</a></li>
+							<li class=""><a href="/curriculum">Curriculum</a></li>
+							<li class=""><a href="/space-management">Gestão de Espaços</a></li>
+							<li class=""><a href="/fenixedu-connect/dashboard">Connect</a></li>
+							<li class="visible-xs"><a href="/logout"><strong>Logout</strong></a></li>
+			</ul>
+		</nav>
+	</header>
+	<div>
+				<main class="col-sm-10 col-sm-push-2" role="main">
+			<ol class="breadcrumb">
+							<li><a href="/messaging">Comunicação</a></li>
+							<li><a href="/messaging/cms">Gestão de Conteúdos</a></li>
+							<li><a href="/messaging/cms/cms-sites">Sites</a></li>
+			
+				<span class="pull-right">
+											<a class="locale-changer active" title="português (Portugal)" onclick="setLang('pt_PT')">pt</a>
+											<a class="locale-changer " title="inglês (Reino Unido)" onclick="setLang('en_GB')">en</a>
+									</span>
+			</ol>
+			<div id="main-content-wrapper">
+				
+
+
+
+
+
+<script>window.Bennu = {"id":"1126484022396719","username":"ist196536","name":"Inês Isabel Gouveia Cipriano Piedade Moreira","displayName":"Inês Moreira","givenNames":"Inês Isabel","familyNames":"Gouveia Cipriano Piedade Moreira","email":"ines.p.moreira@tecnico.ulisboa.pt","active":true,"avatar":"https://fenix.tecnico.ulisboa.pt/user/photo/ist196536","preferredLocale":{"tag":"pt-PT","displayName":"português (Portugal)","lang":"pt"},"locale":{"tag":"pt-PT","displayName":"português (Portugal)","lang":"pt"},"locales":[{"tag":"pt-PT","displayName":"português (Portugal)","lang":"pt"},{"tag":"en-GB","displayName":"English (United Kingdom)","lang":"en"}]};window.contextPath = '';</script><link href="/bennu-toolkit/css/toolkit.css?ver=9.11.2" rel="stylesheet"/><script type="text/javascript" src="/bennu-toolkit/js/toolkit.js?ver=9.11.2"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.js"></script>
+
+
+	<div class="page-header">
+	    <h1>LabDEMO: experiências em aulas teóricas
+			
+	          	<button type="button" data-toggle="modal" data-target="#site-settings" class="btn btn-link"><i class="glyphicon glyphicon-wrench"></i> Settings</button>
+	        
+			<br/><small></small>
+	        <small>
+          		<ol class="breadcrumb">
+                    <li><a href="/cms/sites">Content Management</a></li>
+                </ol>
+	        </small>
+	    </h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-6">
+			<h3>At a glance</h3>
+
+			<div class="input-group">
+				<div class="input-group-btn">
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						New...
+						<span class="caret"></span>
+						<span class="sr-only">Toggle Dropdown</span>
+					</button>
+					<ul class="dropdown-menu">
+						
+							<li><a href="/cms/posts/2482492553134#new">Post</a></li>
+						
+						
+							<li><a href="/cms/pages/2482492553134#new">Page</a></li>
+						
+						
+							<li><a href="/cms/categories/2482492553134#new">Category</a></li>
+						
+						
+							<li><a href="/cms/menus/2482492553134#new">Menu</a></li>
+						
+					</ul>
+				</div>
+				<input type="text" class="form-control" placeholder="Search this website..." id="search-query" autofocus>
+			</div>
+
+			<br />
+
+			<ul class="list-group">
+				
+					<li class="list-group-item"><a href="/cms/posts/2482492553134">Posts<span class="badge pull-right">78</span></a></li>
+					
+						<li class="list-group-item"><a href="/cms/posts/2482492553134?archived=true">
+							Artigos Arquivados
+							<span class="badge pull-right">5</span>
+						</a></li>
+					
+				
+				
+					<li class="list-group-item"><a href="/cms/pages/2482492553134">Pages<span class="badge pull-right">117</span></a></li>
+					
+						<li class="list-group-item"><a href="/cms/pages/2482492553134?archived=true">
+							Páginas Arquivadas
+							<span class="badge pull-right">24</span>
+						</a></li>
+					
+				
+				<li class="list-group-item"><a href="/cms/media/2482492553134">Media<span class="badge pull-right">340</span></a></li>
+				
+					<li class="list-group-item"><a href="/cms/categories/2482492553134">Categories<span class="badge pull-right">7</span></a></li>
+				
+				
+					<li class="list-group-item"><a href="/cms/menus/2482492553134">Menus<span class="badge pull-right">2</span></a></li>
+				
+			</ul>
+		</div>
+		<div class="col-sm-6">
+    		<div class="graph" style="display: none;">
+				<h3>Analytics</h3>
+
+				<svg id="visualisation" width="100%" height="255">
+
+					<defs>
+					  <pattern id="pattern1" x="0" y="0" width="49" height="49" patternUnits="userSpaceOnUse" >
+					      <rect x="0" y="0" width="50" height="50" style="fill:white;stroke-width:2;stroke:#f3f3f3;"/>
+					  </pattern>
+					</defs>
+
+					<rect x="0" y="0" width="100%" height="450" style=" fill: url(#pattern1);" />
+				</svg>
+			</div>
+			<h3>Activity</h3>
+			
+
+			
+			    
+
+			    
+				    <ul class="events">
+				    	
+				    		
+								<li><a href='#' class='avatar'><img src='https://fenix.tecnico.ulisboa.pt/user/photo/ist12825?s=32' alt='Ana Maria Cidade Mourão' /></a><p><strong>Ana Maria Cidade Mourão</strong> edited Experiências </p><time class="pull-right">1 ano atrás</time></li>
+							
+						
+				    		
+								<li><a href='#' class='avatar'><img src='https://fenix.tecnico.ulisboa.pt/user/photo/ist12825?s=32' alt='Ana Maria Cidade Mourão' /></a><p><strong>Ana Maria Cidade Mourão</strong> edited FUNCIONAMENTO </p><time class="pull-right">12 meses atrás</time></li>
+							
+						
+				    		
+								<li><a href='#' class='avatar'><img src='https://fenix.tecnico.ulisboa.pt/user/photo/ist12825?s=32' alt='Ana Maria Cidade Mourão' /></a><p><strong>Ana Maria Cidade Mourão</strong> edited FUNCIONAMENTO </p><time class="pull-right">12 meses atrás</time></li>
+							
+						
+				    		
+								<li><a href='#' class='avatar'><img src='https://fenix.tecnico.ulisboa.pt/user/photo/ist12825?s=32' alt='Ana Maria Cidade Mourão' /></a><p><strong>Ana Maria Cidade Mourão</strong> edited FUNCIONAMENTO </p><time class="pull-right">12 meses atrás</time></li>
+							
+						
+				    		
+								<li><a href='#' class='avatar'><img src='https://fenix.tecnico.ulisboa.pt/user/photo/ist12825?s=32' alt='Ana Maria Cidade Mourão' /></a><p><strong>Ana Maria Cidade Mourão</strong> edited FUNCIONAMENTO </p><time class="pull-right">12 meses atrás</time></li>
+							
+						
+					</ul>
+				
+		    
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6">
+			<h3>Properties</h3>
+			<dl class="dl-horizontal">
+				<dt>Theme</dt>
+				
+					
+					<dd>FenixEDU CMS Units Theme</dd>
+					
+				
+
+				<dt>Visibility</dt>
+				<dd>Público</dd>
+
+				<dt>Published</dt>
+				<dd>
+					
+						<i class="glyphicon glyphicon-ok"></i>
+					
+					
+				</dd>
+
+				<dt>Homepage</dt>
+				
+					
+						<dd>
+							
+								<a href="https://fenix.tecnico.ulisboa.pt/cms/pages/advanced/2482492553134/pagina-inicial/edit">Página Inicial</a>
+							
+							
+						</dd>
+					
+					
+				
+
+				<dt>Author</dt>
+				<dd>João Pedro Carvalho</dd>
+				<dt>Created</dt>
+				<dd>1 década atrás</dd>
+			</dl>
+		</div>
+		<div class="col-sm-6">
+			    <a href="#" data-toggle="modal" data-target="#editLayoutModal"
+       class="btn btn-default" role="button">
+       Layout
+    </a>
+
+    <a class="btn btn-default" href="/unit/sites/2482492553134">
+        Banner
+    </a>
+
+    <!-- Modal panel for deleting an banner -->
+    <div class="modal fade" id="editLayoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">
+                        Cancel
+                    </span>
+                    </button>
+                    <h4>Layout</h4>
+                </div>
+                <div class="modal-body" id="site-layout">
+                    <center>
+                        <p>Select the site layout</p>
+                        <input type="text" hidden="hidden" name="template" id="selected-layout"/>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#" layout='unitHomepageWithBannerIntro'>
+                                    <img src="/static/images/banner_intro.gif" class="img-responsive"
+                                         width="100" height="200" alt="Banner main image"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" layout='unitHomepageWithIntroBanner'>
+                                    <img src="/static/images//intro_banner.gif" class="img-responsive"
+                                         width="100" height="200" alt="Banner main image"/>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" layout='unitHomepageWithIntroFloat'>
+                                    <img src="/static/images//banner_intro_float.gif"
+                                         class="img-responsive"
+                                         width="100" height="200" alt="Banner main image"/>
+                                </a>
+                            </li>
+                        </ul>
+                    </center>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" data-dismiss="modal" class="btn btn-default">
+                        Cancel
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-primary" id="change-layout-btn">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="application/javascript">
+        $(function () {
+            $('#site-layout a').each(function () {
+                var el = $(this);
+                el.click(function () {
+                    $('#site-layout a').removeClass('active');
+                    el.addClass('active');
+                })
+            });
+
+            $('#site-layout a[layout="unitHomepageWithIntroFloat]"]').addClass('active');
+
+            $('#editLayoutModal #change-layout-btn').click(function(evt){
+                var selectedEl = $('#site-layout a.active');
+                var selectedLayout = selectedEl.attr('layout');
+                $.post("/unit/sites/2482492553134/layout", { template: selectedLayout });
+            });
+        });
+    </script>
+
+    <style type="text/css">
+        #site-layout a.active > img {
+            border: #101010 solid medium;
+            padding: 2px;
+        }
+    </style>
+
+		</div>
+	</div>
+
+		
+
+			<div class="modal fade" id="site-settings" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog">
+					<form class="form-horizontal" action="/cms/sites/2482492553134/edit" method="post" role="form">
+					    <input type="hidden" name="_csrf" value="mwpyiAP6_pBFZh7YSVeCx7CPe9bJyzrLl8C5ZRhYJ-Q="/>
+					    <div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span>
+									<span class="sr-only">Close</span>
+								</button>
+								<h4>Settings</h4>
+								<small>Customize your website</small>
+							</div>
+					    	<div class="modal-body">
+							    <div role="tabpanel">
+									<p>
+										<ul class="nav nav-tabs" role="tablist">
+											
+												
+													<li role="presentation" class="active"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">General</a></li>
+													<li role="presentation" ><a href="#roles" aria-controls="roles" role="tab" data-toggle="tab">Roles</a></li>
+													<li role="presentation"><a href="#connections" aria-controls="connections" role="tab" data-toggle="tab">Connections</a></li>
+												
+												
+												
+											
+							            </ul>
+							        </p>
+							    </div>
+							    <div class="tab-content">
+									
+										<div role="tabpanel" class="tab-pane active form-horizontal" id="settings">
+				                        <div class="form-group">
+				                            <label for="site-name" class="col-sm-2 control-label">Nome</label>
+
+				                            <div class="col-sm-10">
+				                                <input bennu-localized-string required-any type="text" name="name" class="form-control"
+				                                    id="site-name" placeholder="Nome" value='{"pt":"LabDEMO: experiências em aulas teóricas","en":"Laboratory Experiments Physics Demonstrations"}' \>
+				                                
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label for="site-description" class="col-sm-2 control-label">Descrição</label>
+				                            <div class="col-sm-10">
+				                                <textarea id="site-description" bennu-localized-string bennu-html-editor
+														  name="description" class="form-control">
+														  {&#034;pt&#034;:&#034;&lt;p&gt;A Física é uma ciência experimental, mesmo em aulas teóricas. &lt;/p&gt;&lt;p&gt;Surpreendendo com experiências, ajudamos à compreensão de fenómenos físicos. &lt;/p&gt;&lt;p&gt;É isto o LabDemo. &lt;br /&gt;&lt;/p&gt;&lt;p&gt;Veja &lt;a href=\&#034;https://fenix.tecnico.ulisboa.pt/2482492553134/experiencias\&#034;&gt;&lt;/a&gt;&lt;a href=\&#034;https://fenix.tecnico.ulisboa.pt/2482492553134/lista-de-exp\&#034;&gt;a lista com as experiências disponíveis&lt;/a&gt; e &lt;a href=\&#034;https://fenix.tecnico.ulisboa.pt/2482492553134/funcionamento/funcionamento\&#034;&gt;o &lt;/a&gt;&lt;a href=\&#034;https://fenix.tecnico.ulisboa.pt/2482492553134/funcionamento\&#034;&gt;modo de funcionamento.&lt;/a&gt;&lt;br /&gt;&lt;/p&gt;&lt;br /&gt;&lt;b&gt;Equipa do LabDemo: &lt;/b&gt;&lt;br /&gt;&lt;b&gt;Professores :&lt;/b&gt; Ana Mourão&lt;b&gt; &lt;/b&gt;(responsável), Prof Pedro Brogueira&lt;br /&gt;&lt;b&gt;Técnicos de Laboratório:&lt;/b&gt; Daniel Lala, Helder Carvalho e Pedro Claro &lt;br /&gt;&lt;div&gt;&lt;b&gt;Organização de manuais e implementação de novas experiências: &lt;/b&gt;João Rino Silvestre&lt;br /&gt;&lt;/div&gt;&lt;div&gt;&lt;br /&gt;&lt;/div&gt;&lt;b&gt;Contacto:&lt;/b&gt; labdemo&amp;#64;fisica.tecnico.ulisboa.pt&#034;,&#034;en&#034;:&#034;Understanding Physics with the Demonstrations Laboratory. &#034;}</textarea>
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label for="theme" class="col-sm-2 control-label">Tema</label>
+
+				                            <div class="col-sm-10">
+				                                <select name="theme" id="theme" class="form-control" disabled>
+				                                    
+				                                </select>
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label for="folder" class="col-sm-2 control-label">Tag</label>
+
+				                            <div class="col-sm-10">
+												
+												
+													<select name="folder" id="" class="form-control" disabled>
+														
+															<option>--</option>
+														
+														
+													</select>
+												
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label class="col-sm-2 control-label">Caminho</label>
+
+				                            <div class="col-sm-10">
+				                                <div class="input-group">
+				                                    <span class="input-group-addon"><code>/</code></span>
+				                                    <input required type="text" name="newSlug" class="form-control" placeholder="Caminho" value='2482492553134' disabled \>
+				                                </div>
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label class="col-sm-2 control-label">Homepage:</label>
+
+				                            <div class="col-sm-10">
+				                                <select name="initialPageSlug" class="form-control" >
+				                                    <option value="---null---">-</option>
+				                                    
+				                                        <option  value="sifao-e-equacao-de-bernoulli">Sifão e equação de Bernoulli</option>
+				                                    
+				                                        <option  value="conservacao-do-momento-angular-de-roda-de-bicicleta43estudante43hovercraft">Conservação do momento angular de roda de bicicleta-estudante-hovercraft</option>
+				                                    
+				                                        <option  value="vasos-comunicantes">Vasos comunicantes</option>
+				                                    
+				                                        <option  value="impulsao-no-interior-de-um-liquido">Impulsão no interior de um líquido</option>
+				                                    
+				                                        <option  value="dilatacao-de-metais">Dilatação de metais</option>
+				                                    
+				                                        <option  value="impulsao-do-ar">Impulsão do ar</option>
+				                                    
+				                                        <option  value="acao-reacao">Ação-reação</option>
+				                                    
+				                                        <option  value="molas-e-coeficientes-de-elasticidade">Coeficiente de elasticidade de uma mola</option>
+				                                    
+				                                        <option  value="projeteis">Projéteis</option>
+				                                    
+				                                        <option  value="ondas-com-frequencias-iguais">Ondas sonoras com frequências iguais</option>
+				                                    
+				                                        <option  value="sobreposicao-de-ondas-sonoras-com-frequencias-proximas-batimentos">Sobreposição de ondas sonoras com frequências próximas: batimentos </option>
+				                                    
+				                                        <option  value="rotacao-de-uma-roda-de-bicicleta-e-momento-angular">Rotação de uma roda de bicicleta e momento angular</option>
+				                                    
+				                                        <option  value="fisica-1-leica">FÍSICA 1: LEICA</option>
+				                                    
+				                                        <option  value="guitarra">Guitarra</option>
+				                                    
+				                                        <option  value="polarizacao-de-ondas-mecanicas">Polarização de ondas mecânicas</option>
+				                                    
+				                                        <option  value="ressonancia-em-sistema-massa-mola">Ressonância em sistema massa-mola</option>
+				                                    
+				                                        <option  value="pendulo">Pêndulo</option>
+				                                    
+				                                        <option  value="demonstrador-de-ondas-mecanicas-transversais">Demonstrador de ondas mecânicas transversais </option>
+				                                    
+				                                        <option  value="fibra-otica-com-agua">Fibra ótica com água</option>
+				                                    
+				                                        <option  value="diabo-mergulhador">Diabo mergulhador</option>
+				                                    
+				                                        <option  value="oscilacoes-de-massa-suspensa-a-mola">Oscilações de massa suspensa numa mola</option>
+				                                    
+				                                        <option  value="polarizacao-de-ondas-eletromagneticas-e-filtros-polarizadores">Polarização de ondas eletromagnéticas e filtros polarizadores</option>
+				                                    
+				                                        <option  value="transicao-de-fase-agua-vapor-a-baixa-pressao">Transição de fase água-vapor a baixa pressão</option>
+				                                    
+				                                        <option  value="ondas-longitudunais-em-mola">Ondas longitudinais em mola</option>
+				                                    
+				                                        <option  value="ondas-estacionarias-em-corda-vibrante-harmonicos-ef7">Ondas estacionárias em corda vibrante: harmónicos</option>
+				                                    
+				                                        <option  value="oscilacoes-e-ondas-meft">Oscilações e Ondas (LEFT)</option>
+				                                    
+				                                        <option  value="principio-de-equivalencia">Princípio de equivalência </option>
+				                                    
+				                                        <option  value="ondas-sonoras-transformada-de-fourier-de-um-sinal-sonoro">Ondas sonoras: transformada de Fourier de um sinal sonoro</option>
+				                                    
+				                                        <option  value="experiencias_dinamicapm">Experiencias_topicos (usar esta para alterar as tabelas no site)</option>
+				                                    
+				                                        <option  value="exp_ana">Experiencias Exemplo de tabelas</option>
+				                                    
+				                                        <option  value="figuras-de-chladni">Figuras de Chladni</option>
+				                                    
+				                                        <option  value="elevador-hidraulico">Elevador hidráulico</option>
+				                                    
+				                                        <option  value="forca-que-atuam-num-fio-com-corrente-quando-se-aproxima-um-superiman">Força que atua num fio com corrente quando se aproxima um superíman </option>
+				                                    
+				                                        <option  value="fibras-oticas">Fibras óticas</option>
+				                                    
+				                                        <option  value="lei-de-snell-decartes-e-angulo-critico-na-fronteira-agua-ar">Lei de Snell-Decartes e ângulo crítico na fronteira água-ar</option>
+				                                    
+				                                        <option  value="balanca-e-momento-de-forcas">Balança e momento de forças</option>
+				                                    
+				                                        <option  value="equilibrio-de-estrutura-metalica">Equilíbrio de estrutura metálica </option>
+				                                    
+				                                        <option  value="termometro-de-galileo">Termometro de Galileo</option>
+				                                    
+				                                        <option  value="espectrografo">Espetrografo</option>
+				                                    
+				                                        <option  value="lampadas-espetrais">Lâmpadas espetrais</option>
+				                                    
+				                                        <option  value="experiencias-teste">Experiencias teste (João)</option>
+				                                    
+				                                        <option  value="nocao-de-ponto-material">Noção de ponto material</option>
+				                                    
+				                                        <option  value="forca-de-atrito">Força de atrito</option>
+				                                    
+				                                        <option  value="queda-de-grave-posicao-velocidade-e-aceleracao">Queda de grave: posição, velocidade e aceleração </option>
+				                                    
+				                                        <option  value="anuncios-e3e">ANÚNCIOS</option>
+				                                    
+				                                        <option  value="carro-balistico">Carro balístico</option>
+				                                    
+				                                        <option  value="lista-de-exp">Experiências</option>
+				                                    
+				                                        <option  value="queda-de-graves">Projéteis</option>
+				                                    
+				                                        <option  value="tiro-ao-alvo">Projéteis e tiro ao alvo</option>
+				                                    
+				                                        <option  value="espetro-do-sol">Espetro do sol</option>
+				                                    
+				                                        <option  value="oscilacoes-de-duas-massas-acopladas">Oscilações de duas massas acopladas</option>
+				                                    
+				                                        <option  value="oscilacoes-livres-de-uma-massa-presa-a-molas-numa-calha">Oscilações livres de uma massa presa a molas numa calha</option>
+				                                    
+				                                        <option  value="medicao-de-grandezas-em-fisica">Medição de grandezas em física</option>
+				                                    
+				                                        <option  value="medicao-de-temperatura">Medição de temperatura</option>
+				                                    
+				                                        <option  value="dinamica-do-corpo-rigido-e-centro-de-massa">Dinâmica do corpo rígido e centro de massa</option>
+				                                    
+				                                        <option  value="analise-dimensional-periodo-de-um-pendulo">Análise dimensional: período de um pêndulo</option>
+				                                    
+				                                        <option  value="velocidade-tangencial-velocidade-angular-e-raio-da-trajetoria">Velocidade tangencial, velocidade angular e raio da trajetória</option>
+				                                    
+				                                        <option  value="velocidate-tangencial-velocidade-angular-e-raio-da-trajetoria">Velocidate tangencial, velocidade angular e raio da trajetória</option>
+				                                    
+				                                        <option  value="oscilacoes-livres-em-massa-mola">Oscilações livres em massa mola</option>
+				                                    
+				                                        <option  value="ondas-em-tina-de-ondas-com-agua">Ondas em tina de ondas com água</option>
+				                                    
+				                                        <option  value="piao-que-inverte-a-rotacao-tippe-top-a35">Pião que inverte a rotação: tippe top</option>
+				                                    
+				                                        <option  value="centro-de-massa-e-equilibrio-de-um-corpo-rigido---1">Centro de massa e equilíbrio de um corpo rígido - 1</option>
+				                                    
+				                                        <option  value="pendulo-balistico">Pêndulo balístico</option>
+				                                    
+				                                        <option  value="equilibrio-estavel-e-equilibrio-instavel">Equilíbrio estável e equilíbrio instável</option>
+				                                    
+				                                        <option  value="motor-a-gasolina-a-4-tempos">Modelo de um motor a gasolina a 4 tempos</option>
+				                                    
+				                                        <option  value="escoamento-em-tubos">Escoamento de água em tubos e equação de Bernulli</option>
+				                                    
+				                                        <option  value="conservacao-de-momento-angular-com-banco-giratorio">Conservação de momento angular com banco giratório e pesos</option>
+				                                    
+				                                        <option  value="interferometro-de-michelson">Interferómetro de Michelson</option>
+				                                    
+				                                        <option  value="visualizacao-3d-de-linhas-de-campo-magnetico">Visualização 3D de linhas de campo magnético</option>
+				                                    
+				                                        <option  value="coijclkn">Linhas de campo magnético</option>
+				                                    
+				                                        <option  value="campo-magnetico-em-torno-de-um-fio-condutor-fino-com-corrente-eletrica">Campo magnético em torno de um fio condutor fino com corrente elétrica</option>
+				                                    
+				                                        <option  value="inducao-eletromagnetica-de-faraday">Indução eletromagnética de Faraday</option>
+				                                    
+				                                        <option  value="corpos-rigidos-em-rotacao-em-plano-inclinado">Inércia rotacional: corpos rígidos em rotação em plano inclinado</option>
+				                                    
+				                                        <option  value="pendulo-de-newton">Pêndulo de Newton</option>
+				                                    
+				                                        <option  value="reflexao-de-luz-1d0">Reflexão de luz</option>
+				                                    
+				                                        <option  value="dispersao-de-luz">Dispersão de luz</option>
+				                                    
+				                                        <option  value="refracao-de-luz">Refração de luz e ângulo crítico</option>
+				                                    
+				                                        <option  value="centro-de-massa-e-2-lei-de-newton-para-o-corpo-rigido">Centro de massa e 2ª Lei de Newton para o corpo rígido</option>
+				                                    
+				                                        <option  value="colisoes-elasticas-em-calha-de-ar">Colisões elásticas em calha de ar</option>
+				                                    
+				                                        <option  value="radiometro-de-crookes">Radiometro de Crookes</option>
+				                                    
+				                                        <option  value="difracao-de-eletroes">Difração de eletrões</option>
+				                                    
+				                                        <option  value="calha-com-looping">Calha com loop</option>
+				                                    
+				                                        <option  value="pendulo-conico">Pêndulo cónico</option>
+				                                    
+				                                        <option  value="roldanas">Roldanas</option>
+				                                    
+				                                        <option  value="lancamento-de-graves-com-diferentes-componentes-das-velocidades-iniciais">Lançamento de graves com diferentes componentes das velocidades iniciais</option>
+				                                    
+				                                        <option  value="forca-centriipeta">Força centrípeta</option>
+				                                    
+				                                        <option  value="cargas-campos-e-potencial-eletrostatico">Cargas, campos e potencial eletrostático</option>
+				                                    
+				                                        <option  value="espectroscopia">Espectroscopia </option>
+				                                    
+				                                        <option  value="dieletricos-e-condensador-plano">Dielétricos e Condensador Plano</option>
+				                                    
+				                                        <option  value="lei-de-lenz">Lei de Lenz</option>
+				                                    
+				                                        <option  value="colisoes">Colisões</option>
+				                                    
+				                                        <option  value="experiencias">Experiências</option>
+				                                    
+				                                        <option  value="eventos">Eventos</option>
+				                                    
+				                                        <option  value="anuncios">Anúncios</option>
+				                                    
+				                                        <option  value="equilibrio-de-forcas-peso-suspenso">Equilíbrio de forças: peso suspenso</option>
+				                                    
+				                                        <option  value="lancamento-de-uma-massa-a-partir-de-um-overcraft">Lançamento de uma massa a partir de um hovercraft</option>
+				                                    
+				                                        <option  value="sol-terra-lua">Sol-Terra-Lua</option>
+				                                    
+				                                        <option  value="roda-de-bicicleta-e-precessao">Roda de bicicleta e precessão</option>
+				                                    
+				                                        <option  value="detecao-de-radiacao-infra-vermelha">Deteção de radiação infra-vermelha</option>
+				                                    
+				                                        <option  value="giroscopio-f4b">Giroscópio</option>
+				                                    
+				                                        <option  value="giroscopio-manual">Giroscópio manual</option>
+				                                    
+				                                        <option  value="modelo-de-olho-humano">Modelo de olho humano</option>
+				                                    
+				                                        <option  value="banco-otico-sistemas-com-lentes-concavas-e-convexas">Banco ótico: sistemas com lentes côncavas e convexas </option>
+				                                    
+				                                        <option  value="impulsao-em-agua-e-no-ar-comparacao">Impulsão em água e no ar: comparação</option>
+				                                    
+				                                        <option  value="rede-de-difracao">Rede de difração</option>
+				                                    
+				                                        <option  value="mola-reflexao-de-onda-em-extremidade-livre-ou-fixa">Mola-reflexão de onda em extremidade livre ou fixa</option>
+				                                    
+				                                        <option  value="oscilacoes-de-pendulos-acoplados">Oscilações de pêndulos acoplados</option>
+				                                    
+				                                        <option  value="oscilacao-de-massa-suspensa-em-mola---amortecidas">Oscilação de massa suspensa em mola - amortecidas</option>
+				                                    
+				                                        <option  value="pressao-do-ar-hemisferios-de-magdeburgo">Pressão do ar: hemisférios de Magdeburgo</option>
+				                                    
+				                                        <option  value="conservacao-de-momento-angular-em-sistema-com-dois-discos">Conservação de momento angular em sistema com dois discos</option>
+				                                    
+				                                        <option  value="modelo-de-braco-e-lancamento-de-bola">Modelo mecânico de braço humano</option>
+				                                    
+				                                        <option  value="contactos">CONTACTOS</option>
+				                                    
+				                                        <option  value="ondas-transversais-em-corda-nocoes-fundamentais">Ondas transversais em corda: noções fundamentais</option>
+				                                    
+				                                        <option  value="colisoes-inelasticas-em-calha-de-ar">Colisões inelásticas em calha de ar</option>
+				                                    
+				                                        <option  value="temas-nas-aulas-teoricas-e-experiencias-sugeridas">FÍSICA 1: Temas nas AT e experiências sugeridas</option>
+				                                    
+				                                        <option  value="funcionamento">FUNCIONAMENTO</option>
+				                                    
+				                                        <option selected value="pagina-inicial">Página Inicial</option>
+				                                    
+				                                </select>
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label class="col-sm-2 control-label">Visibility</label>
+
+				                            <div class="col-sm-10">
+				                                <input bennu-group name="viewGroup" type="text" allow="public,users,managers,custom"  value='anyone'/>
+				                            </div>
+				                        </div>
+
+				                        <div class="form-group">
+				                            <label class="col-sm-2 control-label">Publicado?</label>
+
+				                            <div class="col-sm-10">
+					                            
+			                                        
+	                                                    <div class="switch switch-success">
+			                                            	<input id="published" name="published" type="checkbox" value="true" checked='checked'>
+															<label for="published">Published</label>
+											            </div>
+			                                        
+			                                        
+			                                        
+			                                    
+				                            </div>
+				                        </div>
+							        </div>
+									
+						            
+										<label for="defaultRole" class="col-sm-2 control-label">Cargo por omissão</label>
+										<div class="col-sm-10">
+											<select id="defaultRole" name="defaultRole" class="form-control">
+												
+													<option value="1696726830310280">Editor</option>
+												
+													<option value="1696726830310279">Contribuidor</option>
+												
+													<option value="1696726830310278">Autor</option>
+												
+													<option value="1696726830310277">Admin</option>
+												
+											</select>
+										</div>
+										
+											
+												<div role="tabpanel" class="tab-pane form-horizontal" id="roles"
+											
+											
+										
+								            <ul class="list-group">
+							                	<table class="table">
+							                		<thead><tr><th colspan="2">Role Name</th></tr></thead>
+							                		<tbody>
+										                
+								                			<tr>
+								                				<td>
+									                				<a href="/cms/sites/2482492553134/roles/1696726830310280/edit">
+										                                Editor
+										                            </a>
+									                            </td>
+									                            <td>
+									                            	<div class="pull-right">
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-default btn-xs add-user-btn" data-role-id="1696726830310280" data-role-name="Editor" data-role-group='U(ist196536, ist187328)'>Add user</button>
+																			<button type="button" class="btn btn-default  btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																				<span class="caret"></span>
+																				<span class="sr-only">Toggle Dropdown</span>
+																			</button>
+																			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+																				<li><a href="/cms/sites/2482492553134/roles/1696726830310280/edit">View</a></li>
+																				
+																			</ul>
+																		</div>
+																	</div>
+									                            </td>
+								                			</tr>
+										                
+								                			<tr>
+								                				<td>
+									                				<a href="/cms/sites/2482492553134/roles/1696726830310279/edit">
+										                                Contribuidor
+										                            </a>
+									                            </td>
+									                            <td>
+									                            	<div class="pull-right">
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-default btn-xs add-user-btn" data-role-id="1696726830310279" data-role-name="Contribuidor" data-role-group='nobody'>Add user</button>
+																			<button type="button" class="btn btn-default  btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																				<span class="caret"></span>
+																				<span class="sr-only">Toggle Dropdown</span>
+																			</button>
+																			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+																				<li><a href="/cms/sites/2482492553134/roles/1696726830310279/edit">View</a></li>
+																				
+																			</ul>
+																		</div>
+																	</div>
+									                            </td>
+								                			</tr>
+										                
+								                			<tr>
+								                				<td>
+									                				<a href="/cms/sites/2482492553134/roles/1696726830310278/edit">
+										                                Autor
+										                            </a>
+									                            </td>
+									                            <td>
+									                            	<div class="pull-right">
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-default btn-xs add-user-btn" data-role-id="1696726830310278" data-role-name="Autor" data-role-group='U(ist12825)'>Add user</button>
+																			<button type="button" class="btn btn-default  btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																				<span class="caret"></span>
+																				<span class="sr-only">Toggle Dropdown</span>
+																			</button>
+																			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+																				<li><a href="/cms/sites/2482492553134/roles/1696726830310278/edit">View</a></li>
+																				
+																			</ul>
+																		</div>
+																	</div>
+									                            </td>
+								                			</tr>
+										                
+								                			<tr>
+								                				<td>
+									                				<a href="/cms/sites/2482492553134/roles/1696726830310277/edit">
+										                                Admin
+										                            </a>
+									                            </td>
+									                            <td>
+									                            	<div class="pull-right">
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-default btn-xs add-user-btn" data-role-id="1696726830310277" data-role-name="Admin" data-role-group='U(ist196536, ist12825, ist187328)'>Add user</button>
+																			<button type="button" class="btn btn-default  btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+																				<span class="caret"></span>
+																				<span class="sr-only">Toggle Dropdown</span>
+																			</button>
+																			<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+																				<li><a href="/cms/sites/2482492553134/roles/1696726830310277/edit">View</a></li>
+																				
+																			</ul>
+																		</div>
+																	</div>
+									                            </td>
+								                			</tr>
+										                
+							                		</tbody>
+							                	</table>
+											</ul>
+								        </div>
+
+							        
+
+							        
+										
+											
+												<div role="tabpanel" class="tab-pane form-horizontal" id="connections">
+											
+											
+										
+							            <div role="tabpanel" class="tab-pane form-horizontal" id="connections">
+							                
+							            </div>
+							        
+							    </div>
+						    </div>
+						    <div class="modal-footer">
+								<div class="form-group">
+							        <div class="col-sm-12">
+										
+							            <button type="submit" class="btn btn-default btn-primary">Gravar</button>
+							            <a href="/cms/sites/2482492553134" class="btn btn-default">
+							            	Cancelar
+						            	</a>
+							        </div>
+							    </div>
+						    </div>
+					    </div>
+
+					</form>
+
+					<div class="modal fade" id="confirmDeleteModal" role="dialog" aria-hidden="true">
+					    <form method="post" action="/cms/sites/2482492553134/delete">
+					        <input type="hidden" name="_csrf" value="mwpyiAP6_pBFZh7YSVeCx7CPe9bJyzrLl8C5ZRhYJ-Q="/>
+					        <div class="modal-dialog">
+					            <div class="modal-content">
+					                <div class="modal-header">
+					                    <button type="button" class="close" data-dismiss="modal"><span class="sr-only">Close</span></button>
+					                    <h3 class="modal-title">Delete Site</h3>
+					                    <small>Are you sure?</small>
+					                </div>
+					                <div class="modal-body">
+					                    You are about to delete the site 'LabDEMO: experiências em aulas teóricas'. You will also be deleting all content, including 215 posts. There is no way to rollback this opeartion. Are you sure?
+					                </div>
+					                <div class="modal-footer">
+					                    <button type="button" data-dismiss="modal" class="btn btn-default">Cancelar</button>
+					                    <button type="submit" class="btn btn-danger">Apagar</button>
+					                </div>
+					            </div>
+					        </div>
+					    </form>
+					</div>
+
+					
+						<div class="modal fade" id="delete-role-modal">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						          <h4 class="modal-title">Are you sure?</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p>There is no way to rollback this operation. Are you sure? </p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+						          <button type="button" onclick="$('#delete-role-form').submit();" class="btn btn-danger">Yes</button>
+						          <form action="#" method="post" id="delete-role-form"><input type="hidden" name="_csrf" value="mwpyiAP6_pBFZh7YSVeCx7CPe9bJyzrLl8C5ZRhYJ-Q="/></form>
+						        </div>
+						      </div>
+						    </div>
+						</div>
+
+						<div class="modal fade" id="edit-role-modal" tabindex="1">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						        <form id="edit-role-form" method="post" class="form-horizontal" role="form">
+
+						            <div class="modal-header">
+						                <button type="reset" class="close" aria-label="Close" onclick="$('#edit-role-modal').modal('hide');"><span aria-hidden="true">&times;</span></button>
+						                <h3 class="modal-title">Edit role</h3>
+						                <small>Change the members that have access to this role</small>
+						            </div>
+						            <div class="modal-body">
+						               <input type="hidden" name="_csrf" value="mwpyiAP6_pBFZh7YSVeCx7CPe9bJyzrLl8C5ZRhYJ-Q="/>
+						                <div class="form-group">
+						                    <label class="col-sm-2 control-label">Members</label>
+						                    <div class="col-sm-10">
+						                    	<div id="edit-role-group"></div>
+						                    </div>
+						                </div>
+						            </div>
+
+						            <div class="modal-footer">
+						                <button type="reset" class="btn btn-default" onclick="$('#edit-role-modal').modal('hide');" >Cancel</button>
+						                <button type="submit" class="btn btn-primary">Save</button>
+						            </div>
+
+						        </form>
+
+						    </div>
+						</div>
+
+					
+				</div>
+			</div>
+
+		
+
+	</div>
+<style>
+ul.events {
+	display: table;
+	list-style: none;
+	margin-left: 0;
+	position: relative;
+	width: 100%;
+}
+ul.events:before {
+	border-left: 1px solid #ddd;
+	bottom: 5px;
+	content: "";
+	left: 10px;
+	position: absolute;
+	top: 12px;
+}
+ul.events li {
+	clear: both;
+	color: #888;
+	position: relative;
+}
+ul.events li:before {
+	background-color: #ddd;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	box-shadow: inset 0 0 0 2pt #fff;
+	content: "";
+	display: block;
+	height: 13px;
+	left: -36px;
+	margin-top: 5px;
+	position: absolute;
+	width: 13px;
+}
+ul.events li .avatar {
+	display: table-cell;
+	float: left;
+	margin-top: 0;
+	width: 30px;
+}
+ul.events li .avatar+p {
+	display: table-cell;
+	float: left;
+	width: 70%;
+}
+ul.events li .avatar+p+time {
+	display: table-cell;
+	float: right;
+	text-align: right;
+	width: 22%;
+}
+ul.events li.expanded {
+	margin-top: 15px;
+}
+ul.events li.expanded:before {
+	background-color: #bbb;
+	border: 1px solid #bbb;
+	box-shadow: inset 0 0 0 2pt #fff;
+	height: 30px;
+	margin-left: -8px;
+	margin-top: -2px;
+	width: 30px;
+}
+ul.events li a {
+	color: #444;
+}
+ul.events li time
+{
+	font-style: italic;
+}
+.avatar{
+	margin-top:4px
+}
+.avatar img {
+	width:22px;
+	height:auto;
+	border-radius:2px;
+	margin-right:5px
+}
+</style>
+
+<script type="application/javascript">
+    $(document).ready(function(){
+        if(window.location.hash) {
+        	$('#site-settings').modal('show')
+        	$("a[href='" + window.location.hash +"']").tab('show');
+        }
+
+        $('[data-target="#delete-role-modal"]').click(function(){
+    		$('#delete-role-form').attr('action', "/cms/sites/2482492553134/roles/" + $(this).data("role-id") + "/delete");
+        });
+
+        $('.add-user-btn').click(function(){
+        	var id = $(this).data('role-id');
+        	var name = $(this).data('role-name');
+        	var group = $(this).data('role-group');
+
+        	var input = '<input bennu-group allow="nobody,custom" name="group" type="text" value="' + group + '" />';
+        	$("#edit-role-form").attr("action", "/cms/sites/2482492553134/roles/" + id + "/change")
+        	$('#edit-role-group').html(input);
+        	$('#edit-role-modal').modal('show');
+        })
+
+        $('[name="accountId"]').change(function(){
+            var accountId = $('[name="accountId"]').val();
+            $('[name="analyticsCode"]').prop("disabled", !accountId)
+            $('[name="analyticsCode"]').val("");
+            $('.google-property')
+                .each(function() {
+                    if($(this).data('account') == accountId) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+        });
+
+        function initGoogleAccounts() {
+            var accountId = $('[name="accountId"]').val();
+            $('[name="analyticsCode"]').prop("disabled", !accountId)
+            $('.google-property')
+                .each(function() {
+                    if($(this).data('account') == accountId) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+        }
+
+        initGoogleAccounts();
+
+    });
+
+	function loadAnalyticsGraph(db) {
+		var listDb = []
+		var i = 0;
+		for (var x in db) {
+			db[x].i = i++;
+			listDb.push(db[x]);
+		};
+		function genGraph(){
+			$("path", $("#visualisation")).remove();
+			$("circle", $("#visualisation")).remove();
+		var vis = d3.select('#visualisation'),
+		    WIDTH = $("#visualisation").width(),
+		    HEIGHT = $("#visualisation").height(),
+		    MARGINS = {
+		      top: 20,
+		      right: 20,
+		      bottom: 20,
+		      left: 20
+		    },
+		    xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(listDb, function(d) {
+		      return parseInt(d.i);
+		    }), d3.max(listDb, function(d) {
+		      return parseInt(d.i);
+		    })]),
+		    yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([d3.min(listDb, function(d) {
+		      return parseInt(d.pageviews);
+		    }), d3.max(listDb, function(d) {
+		      return parseInt(d.pageviews);
+		    })]);
+
+
+		var lineFunc = d3.svg.line()
+		.x(function(d) {
+			return xRange(parseInt(d.i));
+		})
+		.y(function(d) {
+			return yRange(parseInt(d.pageviews));
+		})
+		.interpolate('cardinal');
+
+		var lineFuncV = d3.svg.line()
+		.x(function(d) {
+			return xRange(parseInt(d.i));
+		})
+		.y(function(d) {
+			return yRange(parseInt(d.visitors));
+		})
+		.interpolate('cardinal');
+
+		var lineInitFunc = d3.svg.line()
+		.x(function(d) {
+			return xRange(parseInt(d.i));
+		})
+		.y(function(d) {
+			return $("#visualisation").height();
+		})
+		.interpolate('cardinal');
+
+		vis.append('svg:path')
+		  .attr('d', lineInitFunc(listDb))
+		  .attr('stroke', '#3399FF')
+		  .attr('stroke-width', 2)
+		  .attr('fill', 'none').transition().attr('d', lineFunc(listDb)).duration(1000).each("end",function(){
+	  			vis.selectAll("foo").data(listDb).enter().append("svg:circle")
+						.attr("stroke", "#3399FF")
+	         		.attr("fill", function(d, i) { return "#3399FF" })
+	         		.attr("cx", function(d, i) { return xRange(parseInt(d.i)); })
+	         		.attr("cy", function(d, i) { return yRange(parseInt(d.pageviews)); })
+	         		.attr("r", function(d, i) { return 3 });
+		  });
+
+
+		vis.append('svg:path')
+		  .attr('d', lineInitFunc(listDb))
+		  .attr('stroke', '#9AC338')
+		  .attr('stroke-width', 2)
+		  .attr('fill', 'none').transition().attr('d', lineFuncV(listDb)).duration(1000).each("end",function(){
+	  			vis.selectAll("bar").data(listDb).enter().append("svg:circle")
+						.attr("stroke", "#9AC338")
+	         		.attr("fill", function(d, i) { return "#9AC338" })
+	         		.attr("cx", function(d, i) { return xRange(parseInt(d.i)); })
+	         		.attr("cy", function(d, i) { return yRange(parseInt(d.visitors)); })
+	         		.attr("r", function(d, i) { return 3 });
+		  });
+
+		};
+		genGraph();
+		$( window ).resize(function() {
+		  genGraph();
+		});
+	}
+
+	$(document).ready(function() {
+		$.get('/cms/sites/2482492553134/analytics').done(function(analyticsData) {
+			if(analyticsData && !$.isEmptyObject(analyticsData) &&  !$.isEmptyObject(analyticsData.google)) {
+				$('.graph').fadeIn();
+				loadAnalyticsGraph(analyticsData.google)
+			}
+		}).error(function(err){
+			$('.graph').hide();
+		});
+
+		$('#search-query').keypress(function (e) {
+			if (e.which == 13) {
+				var searchQuery = $('#search-query').val();
+				if(searchQuery) {
+					window.location.href = "/cms/posts/2482492553134?query=" + searchQuery;
+				}
+			}
+		});
+	});
+</script>			</div>
+		</main>
+		<nav class="col-sm-2 col-sm-pull-10" id="context">
+												<ul class="nav nav-pills nav-stacked">
+				<li class="navheader"><strong>Comunicação</strong></li>
+									<li><a href="/messaging/news/cms-news" target="_self">Notícias</a></li>
+									<li><a href="/messaging/news/commHub" target="_self">Mensagens</a></li>
+									<li><a href="/messaging/news/learning-channels" target="_self">Canais</a></li>
+									<li><a href="/messaging/news/learning-bookmarks" target="_self">Favoritos</a></li>
+							</ul>
+					<ul class="nav nav-pills nav-stacked">
+				<li class="navheader"><strong>Ferramentas Colaborativas</strong></li>
+									<li><a href="/messaging/collaboration-integrations/collaboration-google" target="">Google Classroom</a></li>
+									<li><a href="/messaging/collaboration-integrations/collaboration-azure" target="">Microsoft Teams</a></li>
+							</ul>
+					<ul class="nav nav-pills nav-stacked">
+				<li class="navheader"><strong>E-Mails</strong></li>
+									<li><a href="/messaging/emails/messaging" target="_self">Envio de Mensagens</a></li>
+									<li><a href="/messaging/emails/messaging-subscriptions" target="_self">Subscrições</a></li>
+							</ul>
+					<ul class="nav nav-pills nav-stacked">
+				<li class="navheader"><strong>Ficheiros</strong></li>
+									<li><a href="/messaging/files/view" target="_self">Consultar</a></li>
+							</ul>
+					<ul class="nav nav-pills nav-stacked">
+				<li class="navheader"><strong>Pesquisar</strong></li>
+									<li><a href="/messaging/search/organizational-structure" target="_self">Estrutura Organizacional</a></li>
+									<li><a href="/messaging/search/delegates" target="_self">Delegados</a></li>
+									<li><a href="/messaging/search/search-person" target="_self">Procurar Pessoa</a></li>
+							</ul>
+					<ul class="nav nav-pills nav-stacked">
+				<li class="navheader"><strong>Gestão de Conteúdos</strong></li>
+									<li><a href="/messaging/cms/cms-sites" target="_self">Sites</a></li>
+							</ul>
+				</nav>
+			</div>
+		<footer class="clearfix" role="contentinfo" >
+		<div class="col-sm-2 text-center">
+			<a class="brand" href="http://fenixedu.org"><img src="/themes/ashes/img/logo_fenixedu_footer.svg" alt="Powered by FenixEdu XXX"></a>
+		</div>
+		<p class="col-sm-10">
+			<span>© Instituto Superior Técnico</span>
+			<a href="" onclick="openSupport(); return false;">
+				Formulário de Suporte			</a>
+		</p>
+</footer>
+<div class="modal fade" id="supportModal"></div>
+<script>
+	openSupport = function() {
+		$('#supportModal').load('/themes/ashes-ist/supportModal.jsp'); $('#supportModal').modal('show');
+		window.current$functionality = '1696250088914949';
+	};
+
+	var alertString = '' ;
+	if (alertString !== "") {
+		var alerts = JSON.parse(alertString);
+		var alertDiv = document.getElementById('alerts');
+		var i = 0;
+		for (var alert of alerts) {
+
+			var tag = alert.type;
+			var color = tag === 'success' ? '#d9ffb3' : tag === 'info' ? '#ccffff' : tag === 'warning' ? '#ffe0b3' : tag === 'danger' ? '#ffb3d1' : '#f2f2f2';
+			alertDiv.innerHTML += '<div style="background-color: ' + color + '; font-weight: bolder; text-align: center; vertical-align: middle; padding-top: 15px; padding-bottom: 15px;">' + alert.message.replaceAll('##X##', i) + '</div>';
+
+			fetch("/api/bennu-portal/alert/count", {
+				method: "POST",
+				body: JSON.stringify(alert),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+					"X-Requested-With": "XMLHttpRequest"
+				}
+			});
+
+			i++;
+		}
+		if (alerts.length > 0) {
+			alertDiv.style.display = "block";
+		}
+	}
+
+	function dismissAlert(num) {
+		if (alertString !== "") {
+			var alerts = JSON.parse(alertString);
+			var alert = alerts[num];
+
+			fetch("/api/bennu-portal/alert/dismiss", {
+				method: "POST",
+				body: JSON.stringify(alert),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+					"X-Requested-With": "XMLHttpRequest"
+				}
+			});
+
+			var linkElement = document.getElementById('alert' + num);
+			linkElement.parentElement.style.display = "none";
+		}
+		return;
+	}
+</script>
+	</body>
+</html>

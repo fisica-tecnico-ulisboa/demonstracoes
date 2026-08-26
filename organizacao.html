@@ -13,7 +13,10 @@
   <main class="container">
     <h1>Organização do laboratório</h1>
     <p>Planta do laboratório: clique numa prateleira para ver as experiências guardadas nela.</p>
-    <p class="dummy-notice"><em>Planta e códigos das prateleiras já são reais. A atribuição de experiências a cada prateleira ainda é provisória — a organização definitiva está a ser feita e será atualizada em breve.</em></p>
+    <div class="shelf-search">
+      <input type="text" id="shelf-search-input" placeholder="Procurar experiência pelo nome... (Enter para procurar)">
+    </div>
+    <p id="shelf-search-feedback" class="shelf-search-feedback"></p>
 
     <div id="floor-tabs" class="floor-tabs"></div>
     <div id="floor-plan-container"></div>
